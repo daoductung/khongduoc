@@ -1,0 +1,81 @@
+{% extends "admin/admin_layout.html" %}
+
+{% block admin-content %}
+
+{% block javascript %}
+<script type="text/javascript">
+    function deleteUser(id){
+        var result = confirm("Want to delete?");
+        if (result) {
+            window.location.replace('http://127.0.0.1:6969/admin/user/delete/'+ id);
+        }
+    }
+</script>
+{% endblock %}
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            Người dùng
+        </h1>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title">Danh sách</h3>
+
+                        <div class="box-tools">
+                            <div class="input-group input-group-sm" style="width: 150px;">
+                                <input type="text" name="table_search" class="form-control pull-right"
+                                       placeholder="Search">
+
+                                <div class="input-group-btn">
+                                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body table-responsive no-padding">
+                        <table class="table table-hover">
+                            <tr>
+                                <th>Mã</th>
+                                <th>Họ và tên</th>
+                                <th>Tài khoản</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                            {% for user in ds_user %}
+                                <tr>
+                                    <td>{{ user.id }}</td>
+                                    <td>{{ user.full_name }}</td>
+                                    <td>{{ user.user_name }}</td>
+                                    <td>
+                                        <a href="/admin/user/edit/{{ user.id }}">Sửa</a>
+                                    </td>
+                                    <td>
+                                        <a onclick="deleteUser({{ user.id }})" href="javascript:void(0)">Xóa</a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+                    <!-- /.box-body -->
+                    <div class="box-footer">
+                        <a class="btn btn-primary" href="/admin/user/add">Thêm mới</a>
+                    </div>
+                </div>
+                <!-- /.box -->
+            </div>
+        </div>
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+{% endblock %}

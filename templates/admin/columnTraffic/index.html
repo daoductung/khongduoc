@@ -1,0 +1,85 @@
+{% extends "admin/admin_layout.html" %}
+
+{% block admin-content %}
+
+{% block javascript %}
+<script type="text/javascript">
+    function deletecolumnTraffic(id){
+        var result = confirm("Want to delete?");
+        if (result) {
+            window.location.replace('/admin/columntraffic/delete/'+ id);
+        }
+    }
+</script>
+{% endblock %}
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            Thông tin trạng thái
+        </h1>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title">Thông tin trạng thái</h3>
+
+                        <div class="box-tools">
+                            <div class="input-group input-group-sm" style="width: 150px;">
+                                <input type="text" name="table_search" class="form-control pull-right"
+                                       placeholder="Search">
+
+                                <div class="input-group-btn">
+                                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body table-responsive no-padding">
+                        <table class="table table-hover">
+                            <tr>
+                                <th>Mã</th>
+                                <th>Cột</th>
+                                <th>Trạng thái</th>
+                                <th>Thời gian</th>
+                                <th>Ảnh</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                            {% for cot in ds_cot %}
+                                <tr>
+                                    <td>{{ cot.id }}</td>
+                                    <td>{{ cot.name }}</td>
+                                    <td>{{ cot.state }}</td>
+                                    <td>{{ cot.time }}</td>
+                                    <td><img width="50" height="50" src="/media/{{ cot.image }}"/></td>
+                                    <td>
+                                        <a href="/admin/columntraffic/edit/{{ cot.id }}">Sửa</a>
+                                    </td>
+                                    <td>
+                                        <a onclick="deletecolumnTraffic({{ cot.id }})" href="javascript:void(0)">Xóa</a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+                    <!-- /.box-body -->
+                    <div class="box-footer">
+                        <a class="btn btn-primary" href="/admin/columntraffic/add">Thêm mới</a>
+                    </div>
+                </div>
+                <!-- /.box -->
+            </div>
+        </div>
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+{% endblock %}

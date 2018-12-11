@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Giao thông đô thị</title>
+    {% load static %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css2/traffic.css' %}">
+
+
+    <script type="text/javascript">
+			function start() {
+				document.getElementById("menu").style.display="block";
+				document.getElementById("close-menu").style.display="block";
+				document.getElementById("start-menu").style.display="none";
+				document.getElementById("logo").style.display="none";
+			}
+			function close() {
+				document.getElementById("menu").style.display="none";
+				document.getElementById("close-menu").style.display="none";
+				document.getElementById("start-menu").style.display="block";
+				document.getElementById("logo").style.display="block";
+			}
+
+    </script>
+</head>
+<body>
+<div id="top-border">
+</div>
+<div id="header">
+    <div id="header-content">
+        <div id="logo">
+            <p id="logo-content">Giao thông đô thị</p>
+            <p id="slogan">Tra cứu thông tin giao thông</p>
+        </div>
+        <div id="start-menu" onclick="start()"><img src="menu.png" alt="Menu"></div>
+        <div id="menu">
+            <ul>
+                <li class="menu-pr">
+                    <a href="#">THÔNG TIN</a>
+                </li>
+                <li class="menu-pr">
+                    <a href="#">HỎI&ĐÁP</a>
+                </li>
+
+            </ul>
+        </div>
+        <!-- <div id="close-menu" onclick="close()">close</div> -->
+        <div id="box">
+            <div id="text-header-1">
+                <p>Giao thông </br> đô thị</p>
+            </div>
+            <div id="text-header-2">
+                <p>Giao thông đô thị gồm một hệ thống các</br>loại đường xá và các phương tiện</br>vận tải hàng hoá và
+                    hành khách.</p>
+            </div>
+        </div>
+        <!-- 		<div id="rmh">
+                    <div id="text-header-3"><span>Read More Here &#187;</span></div>
+                </div> -->
+        <div id="circle">
+            <div id="circle-1">
+                <div id="circle-2">
+                    <img width="380" height="380" src="{% static 'img/incon-traffic.jpg'%}"/>
+                </div>
+            </div>
+        </div>
+        <!-- <div id="image-1"> -->
+        <!-- <img src="./next-1.gif" alt="Next"/> -->
+        <!-- </div> -->
+        <!-- <div id="image-2"> -->
+        <!-- <img src="./next-2.gif" alt="Next"/> -->
+        <!-- </div> -->
+    </div>
+</div>
+<div id="main">
+    <div id="Square-all">
+        {% for cot in ds_cot %}
+        <div id="Square-1">
+            <div id="Square-1-1"><img width="128" height="128" src="/media/{{ cot.image }}"/></div>
+            <div id="Square-text"><p>{{ cot.name }}</br>Trạng thái: {{ cot.state }}</p></div>
+            <div id="Square-text-1"><p>{{ cot.time }}</p></div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div id="latestwork">
+        <div id="lw-header">
+        </div>
+        <div id="lw-body"><p>LATEST WORK</p></div>
+    </div>
+    <div id="end-main">
+        <div class="em-s-s">
+            <div id="em-s1"></div>
+            <div id="em-s1-1"><p id="em-text">LOREM IPSUM DOLOR</p></div>
+        </div>
+        <div class="em-s">
+            <div id="em-s1"></div>
+            <div id="em-s1-1"><p id="em-text">LOREM IPSUM DOLOR</p></div>
+        </div>
+        <div class="em-s-s">
+            <div id="em-s1"></div>
+            <div id="em-s1-1"><p id="em-text">LOREM IPSUM DOLOR</p></div>
+        </div>
+        <div class="em-s-s">
+            <div id="em-s1"></div>
+            <div id="em-s1-1"><p id="em-text">LOREM IPSUM DOLOR</p></div>
+        </div>
+        <div class="em-s">
+            <div id="em-s1-5"></div>
+        </div>
+        <div class="em-s-s">
+            <div id="em-s1"></div>
+            <div id="em-s1-1"><p id="em-text">LOREM IPSUM DOLOR</p></div>
+        </div>
+    </div>
+</div>
+<div id="footer">
+    <div id="f">
+        <div id="f-header">
+            <div id="f-header1">
+                <p id="header1-content">From The Blog</p>
+                <p id="header1-content1">Post Title</p>
+                <p id="header1-content2"><span>Admin</span>, domainname.com</p>
+                <p id="header1-content3">Friday, 6th April 2000</p>
+                <p id="header1-content4">Vestibulumaccumsan egestibulum</br>eu justo convallis augue estas</br>aenean
+                    elit intesque sed. Facilispede</br>estibulum nulla orna nisl velit elit ac</br>aliquat non
+                    tincidunt. Namjusto</br>cras urna urnaretra lor urna neque</br>sed quis orci nulla.</p>
+                <p id="header1-content5">Read More &#187;</p>
+            </div>
+            <div id="f-header2">
+                <div id="header2-content1"><p>Quick Links</p></div>
+                <div id="header2-content2">
+                    <div id="header2-content2-1"><a href="#"><span>&#187;</span> Lorem ipsum dolor sit</a>
+                        <hr/>
+                    </div>
+                    <div id="header2-content2-1"><a href="#"><span>&#187;</span> Amet consectetur</a>
+                        <hr/>
+                    </div>
+                    <div id="header2-content2-1"><a href="#"><span>&#187;</span> Praesent vel sem id</a>
+                        <hr/>
+                    </div>
+                    <div id="header2-content2-1"><a href="#"><span>&#187;</span> Curabitur hendrerit est</a>
+                        <hr/>
+                    </div>
+                    <div id="header2-content2-1"><a href="#"><span>&#187;</span> Aliquam eget erat nec sapien</a>
+                        <hr/>
+                    </div>
+                    <div id="header2-content2-1"><a href="#"><span>&#187;</span> Cras id augue nunc</a>
+                        <hr/>
+                    </div>
+                    <div id="header2-content2-1"><a href="#"><span>&#187;</span> Sed a nulla urna</a>
+                        <hr/>
+                    </div>
+                </div>
+            </div>
+            <div id="f-header3">
+                <div id="header3-content1"><p>Latest Tweets</p></div>
+                <div id="header3-content2"><p><span>@namehere</span> Justoid nonummy</br>laoreet phasellent penatoque
+                    in</br>antesque pellus elis eget tincidunt.</br>Nequatdui laorem justo a non tellus</br>laoremut
+                    vitae doloreet 1 day ago</br></br>
+                    <span>@namehere</span> Justoid nonummy</br>laoreet phasellent penatoque in</br>antesque pellus elis
+                    eget tincidunt.</br>Nequatdui laorem justo a non tellus</br>laoremut vitae doloreet 1 day ago</p>
+                </div>
+            </div>
+            <div id="f-header4">
+                <div id="header4-content1"><p>Contact Us</p>
+                    <input placeholder="Full Name" type="text">
+                    <input placeholder="Email Address" type="text">
+                    <input placeholder="Subject" type="text">
+                    <div id="mes">
+                        <input placeholder="Message" type="textarea">
+                    </div>
+                    <button>SUBMIT</button>
+                </div>
+            </div>
+        </div>
+        <div id="f-hr">
+        </div>
+        <div id="f-footer">
+            <div id="f-f-content1"><p>Copyright <span>&#169;</span> 2018 Domain Name - All Rights Reserved</p></div>
+            <div id="f-f-content2"><p>Template by OS Templates</p></div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

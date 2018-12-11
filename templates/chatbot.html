@@ -1,0 +1,108 @@
+{% extends "layout.html" %}
+{% load static %}
+{% block main_content %}
+<script type="text/javascript">
+  var messages = [],
+  lastUserMessage = "",
+  botMessage = "",
+  botName = 'Chatbot',
+  talking = true;
+
+
+  var greeting=["hi","hello","xin chào","chào bạn","ê bạn","bạn ơi","hello mày","e","alo"];
+  var name=['bạn là ai','m tên gì','name','tên'];
+
+
+function chatbotResponse() {
+
+  talking = false;
+  botMessage = "Xin lỗi mình không hiểu ý của bạn!";
+
+  lastUserMessage=lastUserMessage.toLowerCase();
+
+   for (var i = 0; i < greeting.length; i++){
+    if ( greeting[i].search(lastUserMessage) != -1) {
+        console.log(greeting[i].search(lastUserMessage));
+        botMessage = "Xin chào mình là chat bot giao thông";
+    }
+     else if (lastUserMessage === 'name') {
+        botMessage = 'My name is ' + botName;
+    }
+  }
+}
+
+function newEntry() {
+  if (document.getElementById("chatbox").value != "") {
+
+    lastUserMessage = document.getElementById("chatbox").value;
+    document.getElementById("chatbox").value = "";
+
+    messages.push("<b>Me :</b>"+lastUserMessage);
+
+    chatbotResponse();
+    messages.push("<b>" + botName + ":</b> " + botMessage);
+    Speech(botMessage);
+
+
+    for (var i = 1; i <= 10; i++) {
+      if (messages[messages.length - i])
+        document.getElementById("chatlog" + i).innerHTML = messages[messages.length - i];
+        console.log(messages[messages.length - i]);
+    }
+  }
+}
+function Speech(say) {
+  if ('speechSynthesis' in window && talking) {
+    var utterance = new SpeechSynthesisUtterance(say);
+    speechSynthesis.speak(utterance);
+  }
+}
+
+document.onkeypress = keyPress;
+
+
+function keyPress(e) {
+  var x = e || window.event;
+  var key = (x.keyCode || x.which);
+  if (key == 13 || key == 3) {
+    newEntry();
+  }
+}
+
+function placeHolder() {
+  document.getElementById("chatbox").placeholder = "";
+}
+
+
+</script>
+<h2>Traffic light image</h2>
+<table class="table table-info">
+    {% for tt in ds_cot %}
+    <tbody>
+    <tr>
+        <td><img width="100" height="100" src="/media/{{ tt.image }}"/></td>
+    </tr>
+    </tbody>
+    {% endfor %}
+</table>
+
+<div id="chat">
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#bodybox">Chat bot</button>
+    <div id='bodybox' class="collapse">
+        <div id='chatborder'>
+            <p id="chatlog10" class="chatlog">&nbsp;</p>
+            <p id="chatlog9" class="chatlog">&nbsp;</p>
+            <p id="chatlog8" class="chatlog">&nbsp;</p>
+            <p id="chatlog7" class="chatlog">&nbsp;</p>
+            <p id="chatlog6" class="chatlog">&nbsp;</p>
+            <p id="chatlog5" class="chatlog">&nbsp;</p>
+            <p id="chatlog4" class="chatlog">&nbsp;</p>
+            <p id="chatlog3" class="chatlog">&nbsp;</p>
+            <p id="chatlog2" class="chatlog">&nbsp;</p>
+            <p id="chatlog1" class="chatlog">&nbsp;</p>
+            <input type="text" class="" name="chat" id="chatbox" placeholder="Nhập thông tin ..."
+                   onfocus="placeHolder()">
+        </div>
+    </div>
+</div>
+{% endblock %}

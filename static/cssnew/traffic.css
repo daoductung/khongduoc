@@ -1,0 +1,475 @@
+			*{
+				margin:0;
+				padding:0;
+			}
+			
+			body{
+				font-family:Georgia;
+			}
+			#top-border{
+				background-color:#76c38f;
+				height:5px;
+			}
+			#header{
+				padding-top:43px;
+				background-color:#290000;
+				height:600px;
+			}
+			main{
+				height:973px;
+				background-color:#660000;
+			}
+			#header-content{
+				width:960px;
+				margin:auto;
+			}
+			#logo{
+				color:#ffffff;
+				float:left;
+			}
+			#logo-content{ 
+				color:#ffffff;
+				font-size:28px;
+			}
+			#slogan{
+				color:#979797;
+				font-size:11px;
+			}
+			#menu{
+				color:#ffffff;
+				float:right;
+			}
+			#menu ul:{
+				list-style-type:none;
+				color:#ffffff;
+			}
+			#menu ul li{
+				display:inline;
+			
+			}
+			#menu ul li.menu-pr{
+				margin-right:22px;
+			}
+			#menu ul li a:hover{
+				padding : 13px 20px;
+				background-color:#76c38f;
+				border-radius:5px;
+			}
+			#menu ul li a{
+				font-size:13px;
+				color:#ffffff;
+				text-decoration:none;
+			}
+			#box{
+				width:470px;
+			}
+			#text-header-1{
+				font-family:Georgia;
+				font-size:46px;
+				color:#ffffff;
+				padding-top:142px;
+				padding-left:64px;
+			}
+			#text-header-2{
+				font-family:Georgia;
+				font-size:12px;
+				color:#979797;
+				padding-top:31px;
+				padding-left:60px;
+			}
+			#rmh{
+				margin-left:60px;
+				margin-top:25px;
+				width:142px;
+				height:42px;
+			}
+			#text-header-3{
+				font-family:georgian;
+				font-size:13px;
+				color:#fff;
+				
+			}
+			#text-header-3:hover{
+				padding : 13px 16px;
+				background-color:#76c38f;
+				border-radius:5px;
+			}
+			#image-1{
+				float:left;
+				margin-top:-120px;
+			}
+			#image-2{
+				float:right;
+				margin-top:-120px;
+			}
+			#circle{
+				float:left;
+			}
+			#circle-1{ 
+				position:absolute;
+				top:120px;
+				left:650px;
+				width:430px;
+				height:430px;
+				background-color:#979797;
+				border-radius:215px;
+			}
+			#circle-2{
+				position:absolute;
+				top:26px;
+				left:26px;
+				width:380px;
+				height:380px;
+				background-color:#333333;
+				border-radius:190px;
+
+			}
+			#circle-2 img{
+
+				border-radius:190px;
+			}
+			#main{
+				background-color:#660000;
+				height:973px;
+			}
+			#Square-all{
+				width:960px;
+				margin:auto;
+			}
+			#Square-1{
+				margin-top:61px;
+				margin-right:15px;
+				width:225px;
+				height:305px;
+				background-color:#fff;
+			}
+			#Square-3{
+				margin-top:61px;
+				width:225px;
+				height:305px;
+				background-color:#fff;
+				float:left;
+			}
+			#Square-1-1{
+				margin-left:52px;
+				margin-top:21px;
+				width:120px;
+				height:120px;
+				background-color:#333333;
+			}
+			#Square-1:hover{
+				background-color:#76c38f;
+			}
+			#Square-3:hover{
+				background-color:#76c38f;
+			}
+			#Square-2-1{
+				margin-left:52px;
+				margin-top:21px;
+				width:120px;
+				height:120px;
+				background-color:#fff;
+			}
+			#text-1-1{
+				font-size:18px;
+				color:#fff;
+				padding:54px 11px;
+			}
+			#text-2-1{
+				font-size:18px;
+				color:#333333;
+				padding:54px 11px;
+			}
+			#Square-text{
+				padding-top:18px;
+				font-size:18px;
+				color:#333333;
+				text-align:center;
+			}
+			#Square-text-1{
+				padding-bottom:25px;
+				font-size:18px;
+				color:#333333;
+				text-align:center;
+			}
+			#Square-text-2{
+				padding-top:18px;
+				font-size:32px;
+				color:#fff;
+				text-align:center;
+			}
+			#Square-text-2-1{
+				padding-bottom:25px;
+				font-size:12px;
+				color:#fff;
+				text-align:center;
+			}
+			#latestwork{
+				padding-top:428px;
+				width:960px;
+				margin:auto;
+			}
+			#lw-header{
+				height:3px;
+				width:960px;
+				background-color:#303030;
+			}
+			#lw-body{
+				margin-top:-23px;
+				margin-left:352px;
+				width:258px;
+				height:50px;
+				border-radius:8px;
+				background-color:#303030;
+			}
+			#lw-body p{
+				font-size:32px;
+				color:#fff;
+				text-align:center;
+				padding-top:8px;
+			}
+			#end-main{
+				padding-top:30px;
+				width:960px;
+				margin:auto;
+			}
+			.em-s-s{
+				border: 5px solid white;
+				width:290px;
+				height:190px;
+				float:left;
+				margin-bottom:30px;
+			}
+			.em-s{
+				border: 5px solid white;
+				width:290px;
+				height:190px;
+				float:left;
+				margin-left:30px;
+				margin-right:30px;
+			}
+			#em-s1{
+				width:290px;
+				height:160px;
+				background-color:#353535;
+			}
+			#em-s1-1{
+				width:290px;
+				height:30px;
+				background-color:#151515;
+			}
+			#em-s1-5{
+				width:290px;
+				height:190px;
+				background-color:#353535;
+			}
+			#em-text{
+				font-size:14px;
+				text-align:center;
+				color:#fff;
+			}
+			.em-s-s:hover{
+				border-color:#76c38f;	
+			}
+			.em-s:hover{
+				border-color:#76c38f;	
+			}
+			
+			
+			#footer{
+				height:449px;
+				background-color:#303030;
+			}
+			#f{
+				width:960px;
+				margin:auto;
+			}
+			#f-header{
+				height:387px;
+				
+			}
+			#f-hr{
+				height:1px;
+				background-color:#000;
+			}
+			#f-footer{
+				height:61px;
+				background-color:#2b2b2b;
+				display:inline;
+			}
+			#f-header1{
+				padding-top:40px;
+				width:225px;
+				height:347px;
+				border: 0px solid white;
+				float:left;
+			}
+			#f-header2{
+				padding-top:40px;
+				margin-left:20px;
+				width:225px;
+				height:347px;
+				border: 0px solid white;
+				float:left;
+			}
+			#f-header3{
+				margin-left:20px;
+				margin-right:20px;
+				width:225px;
+				height:347px;
+				float:left;
+			}
+			#f-header4{
+				width:225px;
+				height:347px;
+				float:right;
+			}
+			#header1-content{
+				font-size:16px;
+				color:#fff;
+			}
+			#header1-content1{
+				padding-top:36px;
+				font-size:13px;
+				color:#76c38f;
+			}
+			#header1-content2{
+				padding-top:16px;
+				font-size:13px;
+				color:#fff;
+			}
+			#header1-content2 span{
+				color:#76c38e;
+			}
+			#header1-content3{
+				padding-top:17px;
+				font-size:10px;
+				color:#979797;
+			}
+			#header1-content4{
+				padding-top:15px;
+				font-size:13px;
+				color:#979797;
+				line-height:14px;
+			}
+			#header1-content5{
+				padding-top:15px;
+				font-size:13px;
+				color:#979797;
+			}
+			#header1-content5:hover{
+				color:#76c38f;
+			}
+			#header2-content1{
+				font-size:16px;
+				color:#fff;
+				padding-bottom:37px;
+			}
+			#header2-content2-1 a{
+				padding-bottom:13px;
+				font-size:13px;
+				color:#76c38f;
+				text-decoration: none;
+			}
+			#header2-content2-1 span{
+				color:#979797;
+			}
+			#header2-content2-1 hr{
+				border:1px solid #404040;
+				margin-bottom:5px;
+				margin-top:5px;
+			}
+			#header3-content1{
+				font-size:16px;
+				color:#fff;
+				padding-top:36px;
+			}
+			#header3-content2{
+				margin-top:39px;
+				font-size:13px;
+				color:#979797;
+				line-height:19px;
+			}
+			#header3-content2 span{
+				color:#76c38e;
+			}
+			#header4-content1 p{
+				font-size:16px;
+				color:#fff;
+				padding-top:36px;
+				padding-bottom:34px;
+			}
+			
+			input {		
+					margin-top:5px;
+					padding-left:3px;
+					border: none;
+					width:225px;
+					height:30px;
+					border-radius:8px;
+					background-color:#222222;
+					color:#989898;
+					font-size:13px;
+					font-family:Georgia;
+					padding-top:5px;
+				}
+			#mes input{
+					padding-top:5px;
+					border: none;
+					width:225px;
+					height:75px;
+					border-radius:8px;
+					background-color:#222222;
+					color:#989898;
+					font-size:13px;
+					font-family:Georgia;
+			}
+			button	{
+					margin-top:10px;
+					border:none;
+					width:75px;
+					height:35px;
+					border-radius:8px;
+					background-color:#76c38f;
+					color:#303030;
+					font-size:12px;
+					font-family:Georgia;
+				}
+			#f-f-content1{
+				float:left;
+				margin-top:25px;
+				font-size:13px;
+				color:#979797;
+			}
+			#f-f-content2{
+				float:right;
+				margin-top:25px;
+				font-size:13px;
+				color:#979797;
+			}
+			#start-menu img{
+				width: 2%;
+				height: 2%;
+				float: right;
+			}
+			/* Phone */
+			@media only screen and (max-width: 600px)
+			{
+				#menu{
+					display:none;
+				}
+				#close-menu{
+					display:none;
+				}
+			}
+				
+			/* Desktop */
+			@media only screen and (min-width: 922px)
+			{
+				#start-menu{
+					display: none;
+				}
+				#Close-menu{
+					display:none;
+				}
+			}

@@ -1,0 +1,61 @@
+{% extends "admin/admin_layout.html" %}
+
+{% block admin-content %}
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <h1>
+                Thông tin cột tín hiệu
+            </h1>
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- general form elements -->
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Thêm thông tin cột</h3>
+                        </div>
+                        <!-- /.box-header -->
+                        <!-- form start -->
+                        <form role="form" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="box-body">
+                                <div class="form-group">
+                                    <label for="txtName">Tên</label>
+                                    <input type="text" class="form-control" name="name" id="txtName" placeholder="Tên">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="txtState">Trạng thái</label>
+                                    <input type="text" class="form-control" name="state" id="txtState" placeholder="Trạng thái">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="txtTime">Thời gian</label>
+                                    <input type="text" class="form-control" name="time" id="txtTime" placeholder="Thời gian">
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtImage">Ảnh</label>
+                                    <input type="file" class="form-control" name="image" id="txtImage" placeholder="Ảnh">
+                                </div>
+                            </div>
+                            <!-- /.box-body -->
+
+                            <div class="box-footer">
+                                <button type="submit" class="btn btn-primary">Lưu</button>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- /.box -->
+
+                </div>
+            </div>
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+{% endblock %}

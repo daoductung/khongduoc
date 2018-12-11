@@ -1,0 +1,39 @@
+.container #chat {
+    position: relative;
+}
+.container{
+    z-index:2;
+}
+#chat{
+    z-index:1;
+}
+#bodybox {
+  max-width: 300px;
+  font: 15px arial, sans-serif;
+  background-color: white;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: 5px 5px 5px grey;
+  border-radius: 15px;
+}
+
+.chatlog {
+   font: 15px arial, sans-serif;
+}
+#chatborder{
+    width:300px;
+}
+#chatbox {
+  font: 17px arial, sans-serif;
+  height: 22px;
+  width: 100%;
+}
+
+h1 {
+  margin: auto;
+}
+
+pre {
+  background-color: #f0f0f0;
+  margin-left: 20px;
+}
