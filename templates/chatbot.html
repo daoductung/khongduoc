@@ -1,68 +1,8 @@
+
 {% extends "layout.html" %}
 {% load static %}
 {% block main_content %}
-<script type="text/javascript">
-  var messages = [],
-  lastUserMessage = "",
-  botMessage = "",
-  botName = 'Chatbot',
-  talking = true;
 
-
-  var greeting=["hi","hello","xin chào","chào bạn","ê bạn","bạn ơi","hello mày","e","alo"];
-  var name=['bạn là ai','m tên gì','name','tên'];
-
-
-function chatbotResponse() {
-
-  talking = false;
-  botMessage = "Xin lỗi mình không hiểu ý của bạn!";
-
-  lastUserMessage=lastUserMessage.toLowerCase();
-
-   for (var i = 0; i < greeting.length; i++){
-    if ( greeting[i].search(lastUserMessage) != -1) {
-        console.log(greeting[i].search(lastUserMessage));
-        botMessage = "Xin chào mình là chat bot giao thông";
-    }
-     else if (lastUserMessage === 'name') {
-        botMessage = 'My name is ' + botName;
-    }
-  }
-}
-
-function newEntry() {
-  if (document.getElementById("ndchat").value != "") {
-
-    lastUserMessage = document.getElementById("ndchat").value;
-    document.getElementById("ndchat").value = "";
-    var para = document.createElement('p');
-    chatbotResponse();
-    var t = document.createTextNode(botMessage);
-    para.appendChild(t);
-    document.getElementById("bodychat").appendChild(para);
-  }
-}
-
-document.onkeypress = keyPress;
-
-
-function keyPress(e) {
-  var x = e || window.event;
-  var key = (x.keyCode || x.which);
-  if (key == 13 || key == 3) {
-    newEntry();
-  }
-}
-
-function placeHolder() {
-  document.getElementById("chatbox").placeholder = "";
-}
-
-
-
-
-</script>
 <h2>Traffic light image</h2>
 <table class="table table-info">
     {% for tt in ds_cot %}
@@ -74,12 +14,5 @@ function placeHolder() {
     {% endfor %}
 </table>
 
-<div id="app">
-    <div id="tieude"><p>Hỗ trợ trực tuyến</p></div>
-    <div id="bodychat">
-    </div>
-    <div id="inputchat">
-        <input type="text" id="ndchat"placeholder="Tin nhắn">
-    </div>
-</div>
+
 {% endblock %}

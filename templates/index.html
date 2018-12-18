@@ -6,23 +6,116 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" type="text/css" href="{% static 'css2/traffic.css' %}">
     <link rel="shortcut icon" type="image/png" href="media/media/incon.png"/>
+    <link rel="stylesheet" href="{% static 'css2/chatbotcss.css' %}">
 
-    <script type="text/javascript">
-			function start() {
-				document.getElementById("menu").style.display="block";
-				document.getElementById("close-menu").style.display="block";
-				document.getElementById("start-menu").style.display="none";
-				document.getElementById("logo").style.display="none";
-			}
-			function close() {
-				document.getElementById("menu").style.display="none";
-				document.getElementById("close-menu").style.display="none";
-				document.getElementById("start-menu").style.display="block";
-				document.getElementById("logo").style.display="block";
-			}
+<script type="text/javascript">
 
 
-    </script>
+  var messages = [],
+  lastUserMessage = "",
+  botMessage = "",
+  botName = 'Chatbot',
+  talking = true;
+  chuoixuly="";
+
+
+  var greeting=["hi","hello","xin chào","chao ban","e ban","ban oi","hello mày","e","alo"];
+  var name=["ten","ban ten gi" ];
+  var cauhoi=['tôi muốn hỏi luật an toàn giao thông']
+
+function xoa_dau(str) {
+    str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a");
+    str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g, "e");
+    str = str.replace(/ì|í|ị|ỉ|ĩ/g, "i");
+    str = str.replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/g, "o");
+    str = str.replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g, "u");
+    str = str.replace(/ỳ|ý|ỵ|ỷ|ỹ/g, "y");
+    str = str.replace(/đ/g, "d");
+    str = str.replace(/À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ/g, "A");
+    str = str.replace(/È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ/g, "E");
+    str = str.replace(/Ì|Í|Ị|Ỉ|Ĩ/g, "I");
+    str = str.replace(/Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|Ỡ/g, "O");
+    str = str.replace(/Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ/g, "U");
+    str = str.replace(/Ỳ|Ý|Ỵ|Ỷ|Ỹ/g, "Y");
+    str = str.replace(/Đ/g, "D");
+    return str;
+}
+function chatbotResponse() {
+
+  talking = false;
+  botMessage = "Xin lỗi mình không hiểu ý của bạn!";
+  lastUserMessage = lastUserMessage.toLowerCase();
+
+
+  chuoixuly=lastUserMessage;
+  chuoixuly= xoa_dau(chuoixuly);
+  chuoixuly = chuoixuly.replace(/\s+/g, ' ');
+  chuoixuly.trim();
+
+  console.log(chuoixuly);
+
+
+
+  for (var i = 0; i < greeting.length; i++){
+    if ( greeting[i].search(chuoixuly) != -1) {
+        console.log(greeting[i].search(lastUserMessage));
+        botMessage = "Xin chào. Mình có thể giúp gì cho bạn.";
+    }
+     else if ( name[i].search(chuoixuly) != -1) {
+        botMessage = "Mình là chat bot giao thông";
+    }
+}
+}
+
+function newEntry() {
+  if (document.getElementById("ndchat").value != "") {
+
+    lastUserMessage = document.getElementById("ndchat").value;
+    document.getElementById("ndchat").value = "";
+
+
+    var test_1 = document.createElement('div');
+    var test_2 = document.createElement('div');
+    test_1.scrolling = "no"
+
+    test_1.setAttribute('id', 'sethi' );
+
+    test_1.setAttribute('style','background-color: #D0C6C6;width: auto;height: auto;margin-top: 10px;margin-left:5px;margin-right: 100px; border-top-left-radius: 10px;border-top-right-radius: 10px;border-bottom-right-radius: 10px;float: left; padding:8px;font-size:12px;' );
+
+    test_2.setAttribute('id', 'setnhan' );
+    test_2.setAttribute('style','color:#fff;background-color: #5A529C;width: auto;height: auto; margin-top: 10px;margin-right: 5px;margin-left: 100px;border-top-left-radius: 10px;border-top-right-radius: 10px;border-bottom-left-radius: 10px;;float: right;padding:8px;font-size:12px;');
+
+    var t1 = document.createTextNode(lastUserMessage);
+    test_2.appendChild(t1);
+
+    chatbotResponse();
+    var t2 = document.createTextNode(botMessage);
+    test_1.appendChild(t2);
+
+    document.getElementById("bodychat").appendChild(test_1);
+    document.getElementById("bodychat").appendChild(test_2);
+    document.getElementById("bodychat").insertBefore(test_2,test_1);
+
+  }
+}
+
+
+//Xử lý phím enter
+document.onkeypress = keyPress;
+
+
+function keyPress(e) {
+  var x = e || window.event;
+  var key = (x.keyCode || x.which);
+  if (key == 13 || key == 3) {
+    newEntry();
+  }
+}
+
+function placeHolder() {
+  document.getElementById("chatbox").placeholder = "";
+}
+</script>
 </head>
 <body>
 <div id="top-border">
@@ -33,7 +126,6 @@
             <p id="logo-content">Giao thông đô thị</p>
             <p id="slogan">Tra cứu thông tin giao thông</p>
         </div>
-        <div id="start-menu" onclick="start()"><img src="menu.png" alt="Menu"></div>
         <div id="menu">
             <ul>
                 <li class="menu-pr">
@@ -87,7 +179,7 @@
     <div id="latestwork">
         <div id="lw-header">
         </div>
-        <div id="lw-body"><p>LATEST WORK</p></div>
+        <div id="lw-body"><p>Hình ảnh</p></div>
     </div>
     <div id="end-main">
         <div class="em-s-s">
@@ -115,41 +207,47 @@
         </div>
     </div>
 </div>
+<div id="app">
+    <div id="tieude"><p>Hỗ trợ trực tuyến</p></div>
+    <div id="bodychat">
+        <input type="text" id="ndchat"placeholder="Tin nhắn">
+    </div>
+</div>
 <div id="footer">
     <div id="f">
         <div id="f-header">
             <div id="f-header1">
                 <p id="header1-content">From The Blog</p>
                 <p id="header1-content1">Post Title</p>
-                <p id="header1-content2"><span>Admin</span>, domainname.com</p>
-                <p id="header1-content3">Friday, 6th April 2000</p>
+                <p id="header1-content2"><span>Admin</span>, https://giaothong.herokuapp.com/</p>
+                <p id="header1-content3">December 13, 2018</p>
                 <p id="header1-content4">Vestibulumaccumsan egestibulum</br>eu justo convallis augue estas</br>aenean
                     elit intesque sed. Facilispede</br>estibulum nulla orna nisl velit elit ac</br>aliquat non
                     tincidunt. Namjusto</br>cras urna urnaretra lor urna neque</br>sed quis orci nulla.</p>
-                <p id="header1-content5">Read More &#187;</p>
+
             </div>
             <div id="f-header2">
                 <div id="header2-content1"><p>Quick Links</p></div>
                 <div id="header2-content2">
-                    <div id="header2-content2-1"><a href="#"><span>&#187;</span> Lorem ipsum dolor sit</a>
+                    <div id="header2-content2-1"><a href="#"><span>&#187;</span> </a>
                         <hr/>
                     </div>
-                    <div id="header2-content2-1"><a href="#"><span>&#187;</span> Amet consectetur</a>
+                    <div id="header2-content2-1"><a href="#"><span>&#187;</span> </a>
                         <hr/>
                     </div>
-                    <div id="header2-content2-1"><a href="#"><span>&#187;</span> Praesent vel sem id</a>
+                    <div id="header2-content2-1"><a href="#"><span>&#187;</span></a>
                         <hr/>
                     </div>
-                    <div id="header2-content2-1"><a href="#"><span>&#187;</span> Curabitur hendrerit est</a>
+                    <div id="header2-content2-1"><a href="#"><span>&#187;</span></a>
                         <hr/>
                     </div>
-                    <div id="header2-content2-1"><a href="#"><span>&#187;</span> Aliquam eget erat nec sapien</a>
+                    <div id="header2-content2-1"><a href="#"><span>&#187;</span></a>
                         <hr/>
                     </div>
-                    <div id="header2-content2-1"><a href="#"><span>&#187;</span> Cras id augue nunc</a>
+                    <div id="header2-content2-1"><a href="#"><span>&#187;</span></a>
                         <hr/>
                     </div>
-                    <div id="header2-content2-1"><a href="#"><span>&#187;</span> Sed a nulla urna</a>
+                    <div id="header2-content2-1"><a href="#"><span>&#187;</span></a>
                         <hr/>
                     </div>
                 </div>
@@ -178,11 +276,12 @@
         <div id="f-hr">
         </div>
         <div id="f-footer">
-            <div id="f-f-content1"><p>Copyright <span>&#169;</span> 2018 Domain Name - All Rights Reserved</p></div>
-            <div id="f-f-content2"><p>Template by OS Templates</p></div>
+            <div id="f-f-content1"><p>Copyright <span>&#169;</span> 2018 Tung Can - All Rights Reserved</p></div>
+
         </div>
     </div>
 
 </div>
 </body>
+
 </html>
